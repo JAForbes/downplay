@@ -1,0 +1,38 @@
+<style>
+  .hidden{
+    display:none;
+  }
+  img{
+    display:none;
+  }
+</style>
+<div id='level_01' class='hidden'>
+g = grass
+x = player
+             g 
+          g  g  
+    x  g  g  g  
+    g  g  g  g  
+ g  g  g  g  g 
+</div>
+<img id='grass' src='img/grass.gif'/>
+<img id= 'player' src='img/player.png'/>
+<canvas id = 'can' width='200px' height='200px'>
+</canvas>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src='level.js'></script>
+<script type="text/javascript" src='app.js'></script>
+<script id='example'>
+
+  var level = new Levelo(level_01.innerHTML);
+  var con = can.getContext('2d');
+
+  for(typesK in level.positions){
+    type = level.positions[typesK];
+    for(posK in type){
+      pos = type[posK];
+      con.drawImage(this[level.key[typesK]],pos.x*16,pos.y*16);
+    }
+  }
+
+</script>
